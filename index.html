@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffedf3">
+  <meta name="description" content="A tiny, cute corner made for Pannu — photos, waffles, campus walks and good vibes.">
+  <title>pannu.exe 🌷 — a tiny corner for you</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌷%3C/text%3E%3C/svg%3E">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+    :root{--pink:#ff4f91;--deep:#6c3154;--cream:#fffaf7;--ink:#392b35;--soft:#ffe2ec}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:'DM Sans',sans-serif;background:var(--cream);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;z-index:-1;background-image:radial-gradient(#ff9ab9 1px,transparent 1px);background-size:20px 20px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,5vw,70px);font-size:.9rem}
+    .logo{font-weight:800;letter-spacing:-.04em;color:var(--deep)} .logo span{color:var(--pink)}
+    .pill{border:1px solid #f5c5d7;border-radius:99px;padding:9px 14px;background:#fff9;display:inline-flex;gap:7px;align-items:center}
+    .hero{max-width:1120px;margin:auto;min-height:80vh;padding:38px 22px 65px;display:grid;grid-template-columns:1fr .9fr;gap:50px;align-items:center}
+    .eyebrow{color:var(--pink);font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:.75rem}
+    h1,h2{font-family:'Playfair Display',serif;letter-spacing:-.045em}
+    h1{font-size:clamp(3.4rem,8vw,7.2rem);line-height:.92;margin:18px 0}
+    h1 em{color:var(--pink);font-weight:600}
+    .hero p{font-size:1.08rem;line-height:1.8;max-width:490px;color:#735c6a}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+    .btn{border:0;border-radius:99px;padding:13px 19px;font:700 .95rem 'DM Sans';text-decoration:none;cursor:pointer;transition:.2s}
+    .btn:hover{transform:translateY(-3px)} .primary{background:var(--pink);color:white;box-shadow:0 10px 25px #ff4f9133}.secondary{background:white;color:var(--deep);border:1px solid #f1c8d8}
+    .photo-stack{position:relative;max-width:420px;margin:auto;width:100%;padding:15px}
+    .photo-frame{background:#fff;padding:12px 12px 52px;transform:rotate(3deg);box-shadow:0 22px 55px #6c315420;border-radius:4px;position:relative}
+    .photo-frame img{display:block;width:100%;height:510px;object-fit:cover;object-position:center 42%;border-radius:2px}
+    .photo-caption{position:absolute;bottom:17px;left:0;right:0;text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:#80566a}
+    .sticker{position:absolute;z-index:2;background:#fff0a9;border-radius:50%;width:92px;height:92px;display:grid;place-items:center;text-align:center;font-size:.8rem;font-weight:700;line-height:1.3;transform:rotate(-12deg);top:2px;right:-15px;box-shadow:0 8px 18px #5e304022}
+    .heart{position:absolute;color:var(--pink);font-size:2rem}.h1{left:-7px;bottom:90px}.h2{right:2px;bottom:28px;font-size:1.4rem}
+    section{padding:75px 22px}.section-inner{max-width:1000px;margin:auto}
+    .section-head{text-align:center;margin-bottom:34px}.section-head h2{font-size:clamp(2.3rem,5vw,4rem);margin:8px 0 12px}.section-head p{color:#806a76;line-height:1.7}
+    .dump{display:grid;grid-template-columns:1.1fr .9fr 1fr;gap:18px;align-items:stretch}
+    .dump-card{background:white;padding:11px 11px 18px;box-shadow:0 12px 35px #6c315410;transform:rotate(-2deg);border-radius:7px}
+    .dump-card:nth-child(2){transform:rotate(2.5deg);margin-top:28px}.dump-card:nth-child(3){transform:rotate(-1deg);margin-top:8px}
+    .dump-card img{width:100%;height:280px;object-fit:cover;border-radius:3px}
+    .dump-card:nth-child(2) img{object-position:55% center;filter:saturate(1.08)}.dump-card:nth-child(3) img{object-position:bottom center;filter:brightness(1.04)}
+    .dump-card p{margin:13px 5px 0;font-family:'Playfair Display',serif;font-size:1.08rem;text-align:center;color:#765367}
+    .note{margin:45px auto 0;max-width:730px;padding:30px clamp(22px,5vw,48px);background:#fff0f5;border:1px solid #ffd2e1;border-radius:24px;position:relative}
+    .note:before{content:"♡";position:absolute;right:22px;top:5px;color:#ff8db3;font-size:3rem}
+    .note h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin:0 0 13px;color:var(--deep)}
+    .note p{line-height:1.9;color:#6e5663;margin:0}
+    .poem{background:#fff8e9;border-radius:26px;padding:38px 24px;text-align:center;margin-top:25px}
+    .poem .lines{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.15rem,2.7vw,1.55rem);line-height:1.9;color:#7a435f}
+    .invite{background:linear-gradient(135deg,#ffedf4,#fff7e8);text-align:center}
+    .invite h2{font-size:clamp(2.7rem,6vw,5rem);margin:12px 0}
+    .invite .big{font-size:1.08rem;line-height:1.9;max-width:660px;margin:0 auto;color:#735968}
+    .choice-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:27px 0 8px}
+    .response{min-height:28px;color:var(--deep);font-weight:700;margin-top:18px}
+    .musicbar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:12px;background:#fffdf9ee;border:1px solid #f5c9d9;border-radius:99px;padding:8px 14px;box-shadow:0 8px 28px #5b2c431a;backdrop-filter:blur(10px);width:max-content;max-width:calc(100% - 24px)}
+    .musicbtn{border:0;background:var(--pink);color:#fff;border-radius:50%;width:39px;height:39px;font-size:1rem;cursor:pointer;flex-shrink:0}
+    .musictext{font-size:.78rem;line-height:1.4}.musictext strong{display:block;color:var(--deep)}.musictext span{color:#9a7185}
+    footer{text-align:center;padding:45px 20px 100px;color:#9a7b8b;font-size:.85rem}
+    .sparkle{display:inline-block;animation:float 2.8s ease-in-out infinite}@keyframes float{50%{transform:translateY(-7px) rotate(8deg)}}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;gap:25px;padding-top:24px;min-height:auto}.hero-copy{text-align:center}.hero p{margin:0 auto}.buttons{justify-content:center}.photo-stack{max-width:350px}.photo-frame img{height:420px}.dump{grid-template-columns:1fr 1fr;gap:14px}.dump-card img{height:230px}.dump-card:nth-child(3){grid-column:1/-1;width:75%;justify-self:center;margin-top:8px}.dump-card:nth-child(3) img{height:260px}.topbar{padding:15px 18px}section{padding:58px 18px}}
+    @media(max-width:420px){.dump{grid-template-columns:1fr}.dump-card,.dump-card:nth-child(2),.dump-card:nth-child(3){width:88%;justify-self:center;margin-top:0}.dump-card img,.dump-card:nth-child(3) img{height:310px}.photo-frame img{height:390px}.pill{font-size:.75rem}}
+  </style>
+</head>
+<body>
+  <nav class="topbar">
+    <div class="logo">little corner<span>♡</span></div>
+    <div class="pill">made with thoda sa pyaar <span>🌷</span></div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">a tiny internet surprise · just for you</div>
+        <h1>Oye<br><em>Pannu</em> ✨</h1>
+        <p>Bas ek chhoti si website… kyunki tere naal gallan karde-karde time da pata hi nahi lagda. Teri vibe bohot pyari aa, te tere naal hor memories banaun da mann karda ae. ♡</p>
+        <div class="buttons">
+          <a class="btn primary" href="#photo-dump">photo dump vekh 💌</a>
+          <a class="btn secondary" href="#little-plan">ik chhota jeha plan? ☁️</a>
+        </div>
+      </div>
+      <div class="photo-stack">
+        <div class="sticker">cutie<br>with ✨<br>main-character energy</div>
+        <span class="heart h1">♡</span><span class="heart h2">✦</span>
+        <div class="photo-frame">
+          <img src="assets/pannu-photo.jpg" alt="Pannu in a bright pink suit, sitting outside on campus">
+          <div class="photo-caption">pink suit, pretty vibe, full slay 🌸</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="photo-dump">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">camera roll but make it cute</div>
+          <h2>Little Pannu Dump 📸</h2>
+          <p>Ik photo, par compliments di poori gallery ban sakdi aa. No cap. ♡</p>
+        </div>
+        <div class="dump">
+          <article class="dump-card"><img src="assets/pannu1.jpg" alt="Pannu photo one"><p>pink suit = danger level: ✨</p></article>
+          <article class="dump-card"><img src="assets/pannu2.jpg" alt="Pannu photo two"><p>pretty face, softer heart 🌷</p></article>
+          <article class="dump-card"><img src="assets/pannu1.jpg" alt="Pannu photo one"><p>main character, no audition needed 🎀</p></article>
+        </div>
+
+        <div class="note">
+          <h3>Ik gall dassan, Pannu? 💗</h3>
+          <p>Tu bohot hi changi te thoughtful insaan aa. Tere naal gall karke mood halka ho janda, te ghante vi minutes varge lagde ne. Main eh nahi keh reha ki tenu hun koi answer dena chahida — bas jo feel karda si, oh cute jehe tareeke naal kehna si. Tu jivein aa, ovein hi reh. Teri smile te tera sukoon dono important ne. 🫶</p>
+        </div>
+
+        <div class="poem">
+          <div class="eyebrow">thodi jehi filmy gall</div>
+          <div class="lines">
+            Main tenu booti-ala suit lawaanga,<br>
+            tere nakhre vi pyaar naal utha laanga,<br>
+            tenu Punjabi jutti vi devaanga,<br>
+            pizza vi khavaanga, waffle vi khareed laanga. 🧇<br>
+            <span style="font-size:.92rem">Bas tu hassdi reh… baaki gallan holi-holi. ♡</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite" id="little-plan">
+      <div class="section-inner">
+        <div class="eyebrow">officially manifesting a cute campus memory</div>
+        <h2>Waffle + walk? 🧇🌙</h2>
+        <p class="big">Hun jadon tu haan keh hi ditti aa, main thoda excited taan hona hi si yaar 😭💗<br>Ik waffle, campus ch slow jehi walk, random gallan, thodi hasi… te je tenu vi theek lage, ik photo together? No pressure bilkul — bas ik memory jo baad ch vekh ke smile aa jaave.</p>
+        <div class="choice-row">
+          <button class="btn primary" onclick="showReply('done')">Haanji, cute plan aa 🌷</button>
+          <button class="btn secondary" onclick="showReply('photo')">Photo vi pakki? 📸</button>
+          <button class="btn secondary" onclick="showReply('shy')">Oho, blush karwa ditta 🙈</button>
+        </div>
+        <div class="response" id="response" aria-live="polite"></div>
+        <p style="font-size:.85rem;color:#9b7b8b;margin-top:24px">P.S. je kise nu kehna hove “I like you”, taan keh de: <em>“oh taan mainu hor vi zyada pasand karda aa”</em> 😌😂<br>Par seriously, je koi tenu annoy kare, tu bas apni comfort nu first rakhin. Tenu kise nu explain karan di zaroorat nahi.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="sparkle">🌷 ♡ ✨</div>
+    <p>Made for Pannu — no pressure, just good vibes and a little smile.</p>
+    <p>— from someone who could talk to you for hours ♡</p>
+  </footer>
+
+  <div class="musicbar">
+    <button class="musicbtn" id="musicToggle" aria-label="Play music">▶</button>
+    <div class="musictext"><strong>little soundtrack for this page 🎧</strong><span>tap play · music is yours to pause anytime</span></div>
+    <audio id="song" preload="metadata" loop>
+      <source src="assets/suit-song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <script>
+    const song = document.getElementById('song');
+    const toggle = document.getElementById('musicToggle');
+    toggle.addEventListener('click', async () => {
+      if (song.paused) {
+        try { await song.play(); toggle.textContent = '❚❚'; toggle.setAttribute('aria-label','Pause music'); }
+        catch(e) { toggle.textContent = '▶'; }
+      } else { song.pause(); toggle.textContent = '▶'; toggle.setAttribute('aria-label','Play music'); }
+    });
+    song.addEventListener('ended', () => { toggle.textContent = '▶'; });
+    function showReply(kind) {
+      const messages = {
+        done: 'Yesss 😭💗 waffle te campus walk — plan ta already cute aa!',
+        photo: 'Photo da scene on, par sirf je Pannu vi comfortable hove. 📸♡',
+        shy: 'Hehe bas thoda jeha blush, poora overload nahi 🙈🌷'
+      };
+      document.getElementById('response').textContent = messages[kind];
+    }
+  </script>
+</body>
+</html>
